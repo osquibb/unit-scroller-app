@@ -9,7 +9,7 @@ import { DATA } from './shared/data';
 - Make menuItem buttons toggle view of category MenuRow
 - Make arrows scroll through items max 3 or 4 (rendering when within screen)
 - fix remove row (including arrows) when row empty
-- fix styling*/}
+- fix css styling*/}
 
 class App extends React.Component {
 
