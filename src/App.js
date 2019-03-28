@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDOM from 'react-dom'
 import MenuRow from './components/MenuRowComponent';
 import UnitRow from './components/UnitRowComponent';
 import './App.css';

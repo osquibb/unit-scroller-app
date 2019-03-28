@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
+import { Card, CardBody, Button } from 'reactstrap';
 
 class Arrow extends Component {
-  constructor(props) {
-    super(props);
-    this.arrowClassName = "col-sm text-center";
-    this.arrowStyle = {margin: '40px 0', padding: '30px 0'};
-  }
+
   render() {
+    const arrowText = this.props.direction === "left" ? "<" : ">";
+
     if (this.props.display) {
-      return(
-        <div className={this.arrowClassName}
-             style={this.arrowStyle}>
-        {this.props.direction === "left" ? '<-' : '->'}
-        </div>
-      );
-    } else {
-      return null;
-    }
+        return(
+          <div className="mx-auto col-12 col-sm-4 col-md-3 col-lg-2">
+            <Card className="m-2 border-0">
+              <CardBody className="text-center">
+                <Button>{arrowText}</Button>
+              </CardBody>
+            </Card>
+          </div>
+        );
+      } else {return null;}
   }
 }
 

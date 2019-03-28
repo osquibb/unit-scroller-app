@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Button } from 'reactstrap';
 
 class MenuItem extends Component {
   constructor(props) {
@@ -9,9 +10,12 @@ class MenuItem extends Component {
 
   render() {
     return(
-      <div className={this.menuItemClassName}
-            style={this.menuItemStyle}>
-        {this.props.category}
+      <div className="col-12 col-sm-4 text-center mb-3">
+        <Button className="btn-block"
+                color="primary"
+                size="large">
+          {this.props.category}
+        </Button>
       </div>
     );
   }

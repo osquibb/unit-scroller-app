@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
+import { Card, CardBody, CardTitle, CardText } from 'reactstrap';
 
 class Unit extends Component {
   constructor(props) {
     super(props);
-    this.unitClassName = "col-sm text-secondary border text-center rounded";
-    this.unitStyle = {margin: '15px 20px', padding: '30px'};
 
-    {/*Move this state to App?*/}
+    {/*Lift this state to App?*/}
     this.state = {selected: this.props.selected};
     this.removeUnit = this.removeUnit.bind(this);
   }
@@ -18,11 +17,19 @@ class Unit extends Component {
   render() {
     if (this.state.selected) {
       return(
-        <div className={this.unitClassName}
-              style={this.unitStyle}>
-          <h4>{this.props.title}</h4>
-          <p>{this.props.text}</p>
-          <button onClick={this.removeUnit}>remove</button>
+        <div className="mx-auto col-12 col-sm-4 col-md-3 col-lg-2">
+          <Card className='m-1'>
+            <CardBody className="text-center">
+              <CardTitle className="font-weight-bold">
+              {this.props.title}
+              </CardTitle>
+              <CardText>{this.props.text}</CardText>
+              <button onClick={this.removeUnit}
+                      className="btn btn-warning">
+              remove
+              </button>
+            </CardBody>
+          </Card>
         </div>
       );
     } else {

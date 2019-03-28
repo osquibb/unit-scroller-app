@@ -9,7 +9,7 @@ class MenuRow extends Component {
               key = {category} />)
 
     return(
-      <div className="row">
+      <div className="row align-items-center">
         {menuItems}
       </div>
     );

@@ -12,9 +12,11 @@ class UnitRow extends Component {
                     key={item.title} />);
     return (
       <div className="row">
-        <Arrow direction="left" display={true}/>
+        <Arrow direction="left"
+               display={true}/>
         {units}
-        <Arrow direction="right" display={true}/>
+        <Arrow direction="right"
+               display={true}/>
       </div>
     );
   }
