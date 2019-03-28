@@ -9,7 +9,9 @@ class UnitRow extends Component {
       item => <Unit title={item.title}
                     text={item.text}
                     selected={item.selected}
-                    key={item.title} />);
+                    id={item.id}
+                    key={item.id}
+                    removeItem={this.props.removeItem} />);
     return (
       <div className="row">
         <Arrow direction="left"

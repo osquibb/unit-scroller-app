@@ -35,15 +35,31 @@ class App extends React.Component {
     for(let i in categories) {
       this.state.data[categories[i].toLowerCase()] = itemsByCategory[i];
     }
+    this.removeItem = this.removeItem.bind(this);
+  }
+
+  removeItem(itemId) {
+    console.log(this.state.data);
+    console.log('itemId: ', itemId);
+    const data = this.state.data;
+
+    for(let category in data) {
+      for(let item in data[category]) {
+        if(data[category][item].id === itemId){
+          console.log(data[category][item]);
+        }
+      }
+    }
   }
 
   render() {
     const data = this.state.data;
     const categories = Object.keys(data);
-    
+
     const unitRows = categories.map(category =>
       <UnitRow items={data[category]}
-               key={category} />
+               key={category}
+               removeItem={this.removeItem} />
     );
 
     return(
