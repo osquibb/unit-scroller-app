@@ -10,6 +10,7 @@ class UnitRow extends Component {
                    last: 2
                  }
     this.scrollForward = this.scrollForward.bind(this);
+    this.scrollBackward = this.scrollBackward.bind(this);
   }
 
   scrollForward() {
@@ -17,6 +18,14 @@ class UnitRow extends Component {
     if(nextItem !== undefined) {
       this.setState(state => ({first: state.first + 1}));
       this.setState(state => ({last: state.last + 1}));
+    }
+  }
+
+  scrollBackward() {
+    const nextItem = this.props.items[this.state.first - 1];
+    if(nextItem !== undefined) {
+      this.setState(state => ({first: state.first - 1}));
+      this.setState(state => ({last: state.last - 1}));
     }
   }
 
@@ -36,10 +45,11 @@ class UnitRow extends Component {
     return (
       <div className="row">
         <Arrow direction="left"
-               display={true} />
+               display={items[first - 1] !== undefined}
+               onClick={this.scrollBackward}/>
         {units}
         <Arrow direction="right"
-               display={true}
+               display={items[last] !== undefined}
                onClick={this.scrollForward} />
       </div>
     );

@@ -16,7 +16,17 @@ class Arrow extends Component {
             </Card>
           </div>
         );
-      } else {return null;}
+      } else {
+        return (
+          <div className="mx-auto col-12 col-sm-4 col-md-3 col-lg-2">
+            <Card className="m-2 border-0">
+              <CardBody className="text-center">
+                <div></div>
+              </CardBody>
+            </Card>
+          </div>
+        );
+      }
   }
 }
 
