@@ -3,10 +3,6 @@ import MenuRow from './components/MenuRowComponent';
 import UnitRow from './components/UnitRowComponent';
 import './App.css';
 
-{/*TODO:
-- fix:  when you scroll all the way forward
-and delete a unit, only one remains visible*/}
-
 class App extends React.Component {
 
   constructor(props) {
@@ -34,6 +30,7 @@ class App extends React.Component {
     for(let i in categories) {
       this.state.data[categories[i].toLowerCase()] = itemsByCategory[i];
     }
+
     this.removeItem = this.removeItem.bind(this);
     this.removeCategory = this.removeCategory.bind(this);
   }

@@ -29,6 +29,18 @@ class UnitRow extends Component {
     }
   }
 
+  componentDidUpdate() {
+    const items = this.props.items;
+    const first = this.state.first;
+    const last = this.state.last;
+    const visibleItems = items.slice(first,last);
+    
+    if(visibleItems.length < 2 &&
+       items.length >= 2) {
+         this.scrollBackward();
+       }
+  }
+
   render() {
     const items = this.props.items;
     const first = this.state.first;
