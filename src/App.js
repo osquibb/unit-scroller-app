@@ -3,6 +3,13 @@ import MenuRow from './components/MenuRowComponent';
 import UnitRow from './components/UnitRowComponent';
 import './App.css';
 
+{/*TODO:
+  - remove menu item when corresponding
+  unit row is empty (finish isEmpty() implementation)
+  - fix styling (cols, etc)
+  - animation for state change?
+  */}
+
 class App extends React.Component {
 
   constructor(props) {
@@ -33,6 +40,15 @@ class App extends React.Component {
 
     this.removeItem = this.removeItem.bind(this);
     this.removeCategory = this.removeCategory.bind(this);
+  }
+
+  isEmpty(data) {
+    for(let i in data) {
+      if(data[i].length !== 0) {
+        return false;
+      }
+    }
+    return true;
   }
 
   removeItem(itemId) {
