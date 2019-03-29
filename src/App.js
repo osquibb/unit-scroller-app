@@ -4,12 +4,10 @@ import UnitRow from './components/UnitRowComponent';
 import './App.css';
 
 
-
 {/*TODO:
 - Make menuItem buttons toggle view of category MenuRow
 - Make arrows scroll through items max 3 or 4 (rendering when within screen)
-- fix remove row (including arrows) when row empty
-- fix css styling*/}
+- fix remove row (including arrows) when row empty*/}
 
 class App extends React.Component {
 
