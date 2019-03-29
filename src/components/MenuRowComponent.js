@@ -8,8 +8,9 @@ class MenuRow extends Component {
     const categories = Object.keys(data);
 
     const menuItems = categories.map(category =>
-    <MenuItem category ={category}
-              key ={category} />)
+    <MenuItem category={category}
+              key={category}
+              removeCategory={this.props.removeCategory} />)
 
     return(
       <div className="row align-items-center">

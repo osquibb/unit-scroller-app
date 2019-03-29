@@ -3,7 +3,6 @@ import MenuRow from './components/MenuRowComponent';
 import UnitRow from './components/UnitRowComponent';
 import './App.css';
 
-
 {/*TODO:
 - Make menuItem buttons toggle view of category MenuRow
 - Make arrows scroll through items max 3 or 4 (rendering when within screen)
@@ -13,6 +12,9 @@ class App extends React.Component {
 
   constructor(props) {
     super(props);
+
+    {/* Encapsulate setting of state in a function?*/}
+
     const data = this.props.data;
     const categories = [];
 
@@ -34,16 +36,17 @@ class App extends React.Component {
       this.state.data[categories[i].toLowerCase()] = itemsByCategory[i];
     }
     this.removeItem = this.removeItem.bind(this);
+    this.removeCategory = this.removeCategory.bind(this);
   }
 
   removeItem(itemId) {
-    let data = this.state.data;
+    const data = this.state.data;
 
     for(let category in data) {
       for(let idx in data[category]) {
         if(data[category][idx].id === itemId){
 
-          this.setState((state) => {
+          this.setState(state => {
             state.data[category] =
             state.data[category]
             .filter(item => item.id !== itemId);
@@ -51,6 +54,21 @@ class App extends React.Component {
             return {data: state.data};
           });
         }
+      }
+    }
+  }
+
+  removeCategory(category) {
+    const data = this.state.data;
+
+    for(let cat in data) {
+
+      if(cat === category) {
+        this.setState(state => {
+          delete state.data[category];
+
+          return {data: state.data};
+        });
       }
     }
   }
@@ -67,7 +85,8 @@ class App extends React.Component {
 
     return(
       <div className="container">
-        <MenuRow data={this.state.data} />
+        <MenuRow data={this.state.data}
+                 removeCategory={this.removeCategory}/>
         {unitRows}
       </div>
     );

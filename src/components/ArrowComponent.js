@@ -11,7 +11,7 @@ class Arrow extends Component {
           <div className="mx-auto col-12 col-sm-4 col-md-3 col-lg-2">
             <Card className="m-2 border-0">
               <CardBody className="text-center">
-                <Button>{arrowText}</Button>
+                <Button onClick={this.props.onClick}>{arrowText}</Button>
               </CardBody>
             </Card>
           </div>
