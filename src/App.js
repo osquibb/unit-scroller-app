@@ -39,14 +39,19 @@ class App extends React.Component {
   }
 
   removeItem(itemId) {
-    console.log(this.state.data);
-    console.log('itemId: ', itemId);
-    const data = this.state.data;
+    let data = this.state.data;
 
     for(let category in data) {
-      for(let item in data[category]) {
-        if(data[category][item].id === itemId){
-          console.log(data[category][item]);
+      for(let idx in data[category]) {
+        if(data[category][idx].id === itemId){
+
+          this.setState((state) => {
+            state.data[category] =
+            state.data[category]
+            .filter(item => item.id !== itemId);
+
+            return {data: state.data};
+          });
         }
       }
     }
