@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
   unit row is empty (finish isEmpty() implementation)
   - fix styling (ncols, etc)
   - animation for state change?
+  - Move all state modifiers to redux store
   */}
 
 const mapStateToProps = state => {
@@ -90,6 +91,7 @@ class Main extends React.Component {
   }
 
   render() {
+
     const data = this.state.data;
     const categories = Object.keys(data);
 
